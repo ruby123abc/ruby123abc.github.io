@@ -1,0 +1,414 @@
+       /* 全局样式 */
+       * {
+       	margin: 0;
+       	padding: 0;
+       	box-sizing: border-box;
+       }
+
+       /* 导航栏样式 */
+       /* 导航栏整体样式 */
+       .navbar {
+       	background-color: #ed7f30;
+       	color: white;
+       	display: flex;
+       	justify-content: space-between;
+       	align-items: center;
+       	padding: 10px 20px;
+       }
+
+       .navbar img {
+       	height: 50px;
+       	width: 75px;
+       }
+
+       .nav-links {
+       	list-style: none;
+       	display: flex;
+       	margin: 0;
+       	padding: 0;
+       }
+
+       .nav-links li {
+       	position: relative;
+       	/* 确保下拉菜单定位正确 */
+       	margin: 0 15px;
+       }
+
+       .nav-links a {
+       	color: white;
+       	text-decoration: none;
+       	font-size: 18px;
+       	padding: 10px 15px;
+       	display: block;
+       }
+
+       .nav-links a:hover {
+       	background-color: #ffeb3b;
+       	color: black;
+       	border-radius: 5px;
+       }
+
+       /* 下拉菜单样式 */
+       .navbar-item2,
+       .navbar-item3,
+       .navbar-item4,
+       more-menu {
+       	position: relative;
+       }
+
+       .dropdown-content {
+       	display: none;
+       	/* 默认隐藏下拉菜单 */
+       	position: absolute;
+       	top: 100%;
+       	/* 下拉菜单位于父元素下方 */
+       	left: 0;
+       	background-color: #f9f9f9;
+       	min-width: 160px;
+       	box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+       	z-index: 1;
+       }
+
+       .dropdown-content a {
+       	color: black;
+       	padding: 12px 16px;
+       	text-decoration: none;
+       	display: block;
+       }
+
+       .dropdown-content a:hover {
+       	background-color: #ddd;
+       }
+
+       /* 鼠标悬停时显示下拉菜单 */
+       .more-menu:hover .dropdown-content,
+       .navbar-item2:hover .dropdown-content,
+       .navbar-item3:hover .dropdown-content,
+       .navbar-item4:hover .dropdown-content {
+       	display: block;
+       }
+
+       .search-box {
+       	display: none;
+       }
+
+       .more-menu {
+       	display: none;
+       }
+
+       /* 搜索框容器样式 */
+       .search-box {
+       	position: relative;
+       	width: auto;
+       	/* 设置宽度 */
+       }
+
+       /* 输入框样式 */
+       .search-box input {
+       	width: 100%;
+       	/* 占满容器宽度 */
+       	padding: 10px 40px 10px 15px;
+       	/* 内边距，右侧留出图标空间 */
+       	font-size: 16px;
+       	border: 2px solid #ccc;
+       	/* 边框颜色 */
+       	border-radius: 25px;
+       	/* 圆角 */
+       	outline: none;
+       	/* 移除聚焦时的默认边框 */
+       	transition: all 0.3s ease;
+       	/* 平滑过渡效果 */
+       	box-sizing: border-box;
+       	/* 确保内边距不会影响宽度 */
+       	background-color: #f9f9f9;
+       	/* 背景颜色 */
+       }
+
+       /* 输入框聚焦时的样式 */
+       .search-box input:focus {
+       	border-color: #ed7f30;
+       	/* 聚焦时改变边框颜色 */
+       	box-shadow: 0 0 8px rgba(237, 127, 48, 0.5);
+       	/* 添加阴影效果 */
+       }
+
+       /* 添加搜索图标 */
+       .search-box::after {
+       	content: "🔍";
+       	/* 搜索图标 */
+       	position: absolute;
+       	right: 10px;
+       	/* 图标位置 */
+       	top: 50%;
+       	transform: translateY(-50%);
+       	/* 垂直居中 */
+       	color: #aaa;
+       	/* 图标颜色 */
+       	font-size: 18px;
+       	pointer-events: none;
+       	/* 防止图标被点击 */
+       }
+
+       /* 轮播图样式 */
+       .carousel {
+       	position: relative;
+       	width: 100%;
+       	height: 600px;
+       	overflow: hidden;
+       	margin-top: 20px;
+       }
+
+       .carousel img {
+       	width: 100%;
+       	height: 100%;
+       	object-fit: cover;
+       	display: none;
+       }
+
+       .carousel img.active {
+       	display: block;
+       }
+
+       /* 控制按钮样式 */
+       .carousel-controls {
+       	position: absolute;
+       	top: 50%;
+       	transform: translateY(-50%);
+       	width: 100%;
+       	display: flex;
+       	justify-content: space-between;
+       }
+
+       .carousel-controls button {
+       	background-color: rgba(0, 0, 0, 0.5);
+       	color: white;
+       	border: none;
+       	font-size: 20px;
+       	padding: 10px;
+       	cursor: pointer;
+       }
+
+       /* 横向滚动面板容器 */
+       .horizontal-scroll-panel {
+       	display: flex;
+       	overflow-x: auto;
+       	/* 允许水平滚动 */
+       	gap: 30px;
+       	/* 图片之间的间距 */
+       	padding: 10px;
+       	margin: 30px;
+       	border: 1px solid #ddd;
+       	border-radius: 5px;
+       }
+
+       /* 隐藏滚动条（可选） */
+       .horizontal-scroll-panel::-webkit-scrollbar {
+       	display: none;
+       }
+
+       /* 图片样式 */
+       .horizontal-scroll-panel img {
+       	width: 250px;
+       	/* 设置图片宽度 */
+       	height: 250px;
+       	/* 设置图片高度 */
+       	object-fit: cover;
+       	/* 确保图片不失真 */
+       	border-radius: 5px;
+       	cursor: pointer;
+       	/* 鼠标悬停时显示为手型 */
+       }
+
+       /* 链接样式 */
+       .horizontal-scroll-panel a {
+       	flex-shrink: 0;
+       	/* 防止图片缩小 */
+       	text-decoration: none;
+       	/* 去掉链接下划线 */
+       }
+
+       .app-title {
+       	text-align: center;
+       	/* 文字水平居中 */
+       	color: black;
+       	/* 文字颜色为黑色 */
+       	font-weight: bold;
+       	/* 文字加粗 */
+       }
+
+       .text-title {
+       	padding: 20px;
+       }
+
+       /* 公司动态样式 */
+       .company-dynamics {
+       	display: flex;
+       	justify-content: space-between;
+       	/* 确保子元素均匀分布 */
+       	gap: 20px;
+       	/* 子元素之间的间距 */
+       	margin-left: auto;
+       	/* 自动调整左右外边距，使内容居中 */
+       	margin-right: auto;
+       	max-width: 1800px;
+       	/* 最大宽度限制 */
+       	padding: 0 20px;
+       	/* 内边距，防止内容贴边 */
+       	box-sizing: border-box;
+       	/* 包括内边距在宽度计算中 */
+       }
+
+       .item {
+       	flex: 1;
+       	/* 让每个 item 占据相等的空间 */
+       	max-width: calc(33.33% - 20px);
+       	/* 每个 item 的最大宽度 */
+       	text-align: center;
+       	box-sizing: border-box;
+       	margin: 0;
+       	/* 清除默认外边距 */
+       	padding: 20px;
+       }
+
+       .item img {
+       	max-width: 100%;
+       	height: auto;
+       	object-fit: cover;
+       	border-radius: 5px;
+       	cursor: pointer;
+       	border: 1px solid #ddd;
+       }
+
+       .item p {
+       	font-size: 16px;
+       	line-height: 1.5;
+       	margin-top: 5px;
+       	display: -webkit-box;
+       	-webkit-line-clamp: 3;
+       	-webkit-box-orient: vertical;
+       	overflow: hidden;
+       	text-overflow: ellipsis;
+       }
+
+       .item h4 {
+       	font-size: 16px;
+       	line-height: 1.5;
+       	display: -webkit-box;
+       	-webkit-line-clamp: 3;
+       	-webkit-box-orient: vertical;
+       	overflow: hidden;
+       	text-overflow: ellipsis;
+       }
+
+       /* 响应式设计：当屏幕宽度小于 1000px 时 */
+       @media (max-width: 1000px) {
+
+       	.navbar-item4,
+       	.navbar-item5 {
+       		display: none;
+       	}
+
+       	.more-menu {
+       		display: inline;
+
+       	}
+
+       	/* 横向滚动面板容器 */
+       	.horizontal-scroll-panel {
+       		display: flex;
+       		justify-content: space-evenly;
+       		flex-wrap: wrap;
+       		gap: 30px;
+       		/* 图片之间的间距 */
+       		padding: 10px;
+       		margin: 30px;
+       		border: 1px solid #ddd;
+       		border-radius: 5px;
+       	}
+
+       	/* 图片样式 */
+       	.horizontal-scroll-panel img {
+       		width: 200px;
+       		/* 设置图片宽度 */
+       		height: 200px;
+       		/* 设置图片高度 */
+       		object-fit: cover;
+       		/* 确保图片不失真 */
+       		border-radius: 5px;
+       		cursor: pointer;
+       		/* 鼠标悬停时显示为手型 */
+       	}
+
+       	/* 链接样式 */
+       	.horizontal-scroll-panel a {
+       		flex-shrink: 0;
+       		/* 防止图片缩小 */
+       		text-decoration: none;
+       		/* 去掉链接下划线 */
+       	}
+
+       	.company-dynamics {
+       		flex-direction: column;
+       		align-items: center;
+       		gap: 10px;
+       	}
+
+       	.item {
+       		display: flex;
+       		flex-direction: row;
+       		align-items: flex-start;
+       		/* 确保文字区域顶部对齐 */
+       		max-width: 100%;
+       		margin-bottom: 20px;
+       		align-self: flex-start;
+       	}
+
+       	.item img {
+       		max-width: 150px;
+       		height: auto;
+       		margin-right: 10px;
+       	}
+
+       	.item .text-container {
+       		/* 新增一个包裹 h4 和 p 的容器 */
+       		display: flex;
+       		flex-direction: column;
+       		flex: 1;
+       		text-align: left;
+       	}
+
+       	.item h4,
+       	.item p {
+       		margin: 0;
+       		/* 移除默认的外边距 */
+       	}
+       }
+
+       /* 响应式布局：当屏幕宽度小于 768px 时 */
+       @media (max-width: 768px) {
+
+       	#navbar-li {
+       		display: none;
+       	}
+
+       	.search-box {
+       		display: inline;
+       	}
+
+       	.company-dynamics {
+       		flex-direction: column;
+       		align-items: center;
+       	}
+
+       	.item {
+       		flex: 0 0 100%;
+       		/* 占据100%宽度 */
+       		max-width: 100%;
+       		margin-bottom: 20px;
+       		/* 添加底部间距 */
+       	}
+
+       	.item img {
+       		display: contents;
+       	}
+       }
